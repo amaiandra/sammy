@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -25,10 +27,38 @@ import java.util.List;
 public class TaskDetails extends Activity implements View.OnClickListener {
 
     Button btn_delete;
+    Task task;
+
 
    protected void onCreate (Bundle savedInstantState){
        super.onCreate (savedInstantState);
        setContentView(R.layout.activity_task_detail);
+       Intent i= getIntent();
+       task= (Task) i.getSerializableExtra("task");
+
+
+       TextView title = (TextView) findViewById(R.id.descTitle);
+       title.setText(task.getTitle());
+       TextView description = (TextView) findViewById(R.id.descTitle);
+       description.setText(task.getDescription());
+       ImageView imgbutton = (ImageView) findViewById(R.id.decimageView);
+       if(task.getStatus()==1){
+           imgbutton.setImageResource(R.drawable.done);
+       }
+       else {
+           imgbutton.setImageResource(R.drawable.notdone);
+       }
+       final TaskDetails theAdapter = this;
+       imgbutton.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               task.setStatus((task.getStatus()+1)%2);
+
+               theAdapter.recreate();
+
+           }
+       });
+
 
    }
 
