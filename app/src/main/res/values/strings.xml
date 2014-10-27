@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">The APP</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="bt_login">Log In</string>
+    <string name="hello_app">Welcome to THE APP</string>
+    <string name="title_activity_list">list</string>
+
+</resources>
