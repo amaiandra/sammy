@@ -25,7 +25,6 @@ import java.util.List;
  */
 public class AddTask extends Activity implements View.OnClickListener {
 
-    //private static final String TASKS_CACHE_FILE = "task_cache.ser";
     EditText Title, Description;
     Button btn_add_accept, btn_add_cancel;
     Task tsk;

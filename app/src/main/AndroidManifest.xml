@@ -25,6 +25,15 @@
             android:theme="@style/dialogbox"
             android:label="add activity" >
         </activity>
+
+        <activity
+            android:name= ".TaskDetails"
+            android:theme="@style/dialogbox"
+            android:label= "task details">
+
+            </activity>
+
+
     </application>
 
 </manifest>

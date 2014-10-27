@@ -72,11 +72,11 @@ public class ListTasks extends ListActivity {
     public void onListItemClick(ListView listView, View view, int position, long id) {
         Log.d(ListTasks.class.getSimpleName(), "hola");
 
-        Toast.makeText(getApplicationContext(), "this is my Toast message!!! =)",
-              Toast.LENGTH_LONG).show();
-              Task task1= thetasks.get(position);
 
-                Intent i = new Intent(getApplicationContext(), TaskDetails.class);
+        Toast.makeText(getApplicationContext(), "this is my Toast message!!! =)",
+                Toast.LENGTH_SHORT).show();
+        Task task1= thetasks.get(position);
+                Intent i = new Intent(this, TaskDetails.class);
                 i.putExtra("task",task1);
                 startActivity(i);
 
