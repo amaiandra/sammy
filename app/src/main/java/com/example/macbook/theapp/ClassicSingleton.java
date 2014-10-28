@@ -47,19 +47,16 @@ public class ClassicSingleton {
         };
 
         public void playSound(Context context) {
-            Random index = new Random();
+
             if( this.sex== Sex.WOMAN){
-
-
-                final MediaPlayer mp = MediaPlayer.create(context, RAW_FILES_IDS_FEMALE[index.nextInt()%4]);
-
+                Random index = new Random();
+                final MediaPlayer mp = MediaPlayer.create(context, RAW_FILES_IDS_FEMALE[index.nextInt(4)]);
                 mp.start();
-
-
             }
 
             else if (this.sex== Sex.MAN) {
-                final MediaPlayer mp = MediaPlayer.create(context, RAW_FILES_IDS_MALE[index.nextInt()%3]);
+                Random index = new Random();
+                final MediaPlayer mp = MediaPlayer.create(context, RAW_FILES_IDS_MALE[index.nextInt(3)]);
                 mp.start();
 
             }
