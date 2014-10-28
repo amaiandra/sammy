@@ -44,6 +44,9 @@ public class TaskAdapter extends ArrayAdapter<Task> {
             public void onClick(View v) {
                 tasks.get(position).setStatus((tasks.get(position).getStatus()+1)%2);
                 Writefiles.action(getContext(), tasks);
+                if(tasks.get(position).getStatus()%2 ==1){
+                    ClassicSingleton.getInstance().playSound(theAdapter.getContext());
+                }
 
                 theAdapter.notifyDataSetChanged();
 

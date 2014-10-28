@@ -83,6 +83,11 @@ public class TaskDetails extends Activity  {
            public void onClick(View v) {
                task.setStatus((task.getStatus() + 1) % 2);
                theAdapter.recreate();
+               if(task.getStatus()%2==1){
+                   ClassicSingleton.getInstance().playSound(theAdapter);
+
+               }
+
                thetasks.remove(position);
                thetasks.add(position,task);
                Writefiles.action(TaskDetails.this, thetasks);
