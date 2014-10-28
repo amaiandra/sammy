@@ -25,12 +25,11 @@ import java.util.List;
  */
 public class AddTask extends Activity implements View.OnClickListener {
 
-    //private static final String TASKS_CACHE_FILE = "task_cache.ser";
     EditText Title, Description;
     Button btn_add_accept, btn_add_cancel;
     Task tsk;
 
-    private ArrayAdapter ItemArrayAdapter;
+
 
 
     public List<Task> thetasks = new ArrayList<Task>();
@@ -58,31 +57,18 @@ public class AddTask extends Activity implements View.OnClickListener {
         if (v ==this.btn_add_accept) {
             if (!ti.isEmpty() && !dc.isEmpty()) {
 
-                try {
 
-                    FileInputStream fis = openFileInput(ListTasks.TASKS_CACHE_FILE);
-                    ObjectInputStream ois = new ObjectInputStream(fis);
-                    thetasks = (List<Task>) ois.readObject();
-                    ois.close();
-                    fis.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+
+                thetasks = Readfiles.action(this);
+
                 tsk.setTitle(ti);
                 tsk.setDescription(dc);
                 tsk.setStatus(0);
                 thetasks.add(tsk);
-                try {
-                    FileOutputStream fos = openFileOutput(ListTasks.TASKS_CACHE_FILE, Context.MODE_PRIVATE);
-                    ObjectOutputStream oos = new ObjectOutputStream(fos);
-                    oos.writeObject(thetasks);
-                    oos.close();
-                    fos.close();
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+
+
+
+                Writefiles.action(this, thetasks);
 
                 Intent i = new Intent(this, ListTasks.class);
                 startActivity(i);

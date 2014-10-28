@@ -48,6 +48,7 @@ public class TaskAdapter extends ArrayAdapter<Task> {
             @Override
             public void onClick(View v) {
                 tasks.get(position).setStatus((tasks.get(position).getStatus()+1)%2);
+                Writefiles.action(getContext(), tasks);
 
                 theAdapter.notifyDataSetChanged();
 

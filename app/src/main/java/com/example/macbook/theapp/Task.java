@@ -1,5 +1,8 @@
 package com.example.macbook.theapp;
 
+import android.graphics.Typeface;
+import android.widget.TextView;
+
 import java.io.Serializable;
 
 /**
@@ -12,7 +15,7 @@ public class Task implements Serializable {
     private int Status;
 
 
-    public Task(){}
+    public Task() {}
 
     public String getTitle() {
         return Title;
@@ -26,16 +29,16 @@ public class Task implements Serializable {
     public void setTitle(String Title) {
 
         this.Title = Title;
+
     }
 
     public int getStatus() {
         return Status;
     }
 
-    public void setStatus (int Status){
+    public void setStatus(int Status) {
         this.Status = Status;
     }
-
 
 
     public void setDescription(String Description) {
@@ -47,3 +50,7 @@ public class Task implements Serializable {
         return super.toString();
     }
 }
+
+
+
+

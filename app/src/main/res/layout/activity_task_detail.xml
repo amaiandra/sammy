@@ -10,8 +10,8 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:id="@+id/decimageView"
             android:layout_gravity="center_horizontal" />
 
@@ -25,13 +25,26 @@
             android:layout_height="wrap_content"
             android:id="@+id/descDes" />
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Delete"
-            android:id="@+id/btn_delete"
-            android:layout_gravity="center_horizontal" />
-    </LinearLayout>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                android:id="@+id/btn_edit"
+                android:layout_gravity="center_horizontal" />
+            <Button
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                android:id="@+id/btn_delete"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+
+        </LinearLayout>
 
 </LinearLayout>
