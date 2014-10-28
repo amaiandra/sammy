@@ -38,10 +38,10 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         description.setText(tasks.get(position).getDescription());
         ImageView imgbutton = (ImageView) theView.findViewById(R.id.imageButton);
         if(tasks.get(position).getStatus()==1){
-            imgbutton.setImageResource(R.drawable.done);
+            imgbutton.setImageResource(R.drawable.radiobtn_on);
         }
         else {
-            imgbutton.setImageResource(R.drawable.notdone);
+            imgbutton.setImageResource(R.drawable.radiobtn_off);
         }
         final TaskAdapter theAdapter = this;
         imgbutton.setOnClickListener(new View.OnClickListener() {
