@@ -14,15 +14,32 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@android:id/list"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:text="New Activity"
             android:id="@+id/btn_add"
-            android:layout_above="@android:id/list"
+
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignTop="@android:id/list" />
+        <Button
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:text="ChangeState"
+            android:id="@+id/btn_chng"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@android:id/list" />
+        </LinearLayout>
 
         <ListView
             android:id="@android:id/list"

@@ -17,7 +17,7 @@ public class ClassicSingleton {
         private int order;
 
         private enum Sex{
-            MAN,WOMAN
+            MAN,WOMAN,NONE
         }
 
 
@@ -79,6 +79,10 @@ public class ClassicSingleton {
 
         public void setWoman() {
             sex = Sex.WOMAN;
+        }
+
+        public void setNone (){
+            sex = Sex.NONE;
         }
 
 
