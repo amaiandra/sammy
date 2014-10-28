@@ -72,10 +72,10 @@ public class TaskDetails extends Activity  {
        description.setText(task.getDescription());
        ImageView imgbutton = (ImageView) findViewById(R.id.decimageView);
        if(task.getStatus()==1){
-           imgbutton.setImageResource(R.drawable.done);
+           imgbutton.setImageResource(R.drawable.radiobtn_on);
        }
        else {
-           imgbutton.setImageResource(R.drawable.notdone);
+           imgbutton.setImageResource(R.drawable.radiobtn_off);
        }
        final TaskDetails theAdapter = this;
        imgbutton.setOnClickListener(new View.OnClickListener() {

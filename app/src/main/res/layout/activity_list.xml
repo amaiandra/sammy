@@ -8,23 +8,17 @@
     android:paddingTop="2dp"
     android:background="#ffffff"
     tools:context="com.example.macbook.theapp.ListTasks">
-<<<<<<< HEAD
 
-<LinearLayout
-    android:layout_width="fill_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_marginTop="40dp"
-    android:layout_marginBottom="40dp"
-    >
-=======
+
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
@@ -32,34 +26,21 @@
         android:layout_above="@android:id/list"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
->>>>>>> 28e54355dd8c01019bd9e46b9a54cb9154330469
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="50dp">
+
         <Button
-            android:layout_width="230dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="New Activity"
             android:id="@+id/btn_add"
-<<<<<<< HEAD
             android:background="#E8F7F7"
-=======
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@android:id/list" />
 
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignTop="@android:id/list" />
-        <Button
-            android:layout_width="135dp"
-            android:layout_height="wrap_content"
-            android:text="ChangeState"
-            android:id="@+id/btn_chng"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignTop="@android:id/list" />
         </LinearLayout>
->>>>>>> 28e54355dd8c01019bd9e46b9a54cb9154330469
-
-            android:textColor="#41D2D2"
-            android:shadowColor="#ffc2ff96"
-            />
+        />
 
     <ListView
         android:id="@android:id/list"
@@ -79,18 +60,9 @@
         android:paddingRight="0dp"
         android:id="@+id/greenline_top"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="40dp"
         android:background="#41D2D2"/>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:paddingLeft="0dp"
-        android:paddingRight="0dp"
-        android:id="@+id/greenline_bottom"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="35dp"
-        android:background="#41D2D2"/>
 
     //signout button
 
@@ -107,26 +79,19 @@
 
 
     <ImageButton
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:id="@+id/btn_settings"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:id="@+id/btn_chng"
         android:layout_above="@android:id/list"
         android:layout_alignParentRight="true"
         android:layout_marginRight="05dp"
-        android:src="@drawable/settings_icon"
+        android:src="@drawable/logo_icon"
 
         android:textSize="12sp"
 
         android:background="#ffffff"
         android:textColor="#000000"/>
 
-    <ImageView
-        android:layout_width="34dp"
-        android:layout_height="34dp"
-        android:id="@+id/logo_icon"
-        android:src="@drawable/logo_icon"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
 
 
 

@@ -34,13 +34,10 @@ public class Task implements Serializable {
     }
     public String getDescription() {
 
-<<<<<<< HEAD
-    public void setStatus(int Status) {
-        this.Status = Status;
-    }
 
 
-=======
+
+
         return Description;
     }
     public void setStatus (int Status){
@@ -49,7 +46,7 @@ public class Task implements Serializable {
     public void setBriefDescription(String BriefDescription) {
         this.BriefDescription = BriefDescription;
     }
->>>>>>> 28e54355dd8c01019bd9e46b9a54cb9154330469
+
     public void setDescription(String Description) {
         this.Description = Description;
     }

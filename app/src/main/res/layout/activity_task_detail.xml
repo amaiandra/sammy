@@ -7,29 +7,47 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/hdblackbackground">
 
         <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:id="@+id/decimageView"
-            android:layout_gravity="center_horizontal" />
+            android:padding="5dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#ffffff"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/descTitle" />
+            android:background="#ffffff"
+            android:typeface="sans"
+            android:layout_marginTop="07dp"
+            android:id="@+id/descTitle"
+            android:paddingLeft="05dp"
+            android:paddingRight="05dp"/>
 
         <TextView
+            android:layout_marginTop="07dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/brfDesc" />
+            android:background="#ffffff"
+            android:typeface="sans"
+            android:id="@+id/brfDesc"
+            android:paddingLeft="05dp"
+            android:paddingRight="05dp"/>
 
         <TextView
+            android:layout_marginTop="07dp"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Large Text"
+            android:background="@drawable/greenallround"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:typeface="sans"
             android:id="@+id/Desc" />
 
         <LinearLayout
@@ -38,24 +56,41 @@
             android:layout_height="wrap_content">
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Edit"
-                android:id="@+id/btn_edit"
-                android:layout_gravity="center_vertical" />
-            <Button
+
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Delete"
+                android:background="#41D2D2"
+                android:textColor="#ffffff"
+                android:typeface="sans"
                 android:id="@+id/btn_delete"
-                android:layout_gravity="center_vertical" />
+                android:layout_marginLeft="05dp"
+                android:layout_marginTop="10dp"
+                 />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                android:background="#41D2D2"
+                android:textColor="#ffffff"
+                android:typeface="sans"
+                android:id="@+id/btn_edit"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Return"
-                android:id="@+id/btn_return" />
+                android:id="@+id/btn_return"
+                android:background="#41D2D2"
+                android:textColor="#ffffff"
+                android:typeface="sans"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"/>
+
         </LinearLayout>
 
         </LinearLayout>

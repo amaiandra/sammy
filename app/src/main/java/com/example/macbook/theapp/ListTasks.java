@@ -4,13 +4,16 @@ import android.app.Application;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -41,10 +44,10 @@ public class ListTasks extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
-        Button btn_add = (Button) findViewById(R.id.btn_add);
-        Button btn_change = (Button) findViewById(R.id.btn_chng);
 
-        btn_change.setOnClickListener(new View.OnClickListener() {
+        Button btn_add = (Button) findViewById(R.id.btn_add);
+        ImageButton btn_change = (ImageButton) findViewById(R.id.btn_chng);
+          btn_change.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ClassicSingleton.getInstance();
@@ -60,6 +63,7 @@ public class ListTasks extends ListActivity {
                 else {
                     ClassicSingleton.getInstance().setWoman();
                     Toast.makeText(getApplicationContext(), "Sammy is now a girl",
+                            Toast.LENGTH_SHORT).show(); Toast.makeText(getApplicationContext(), "Sammy is now a girl",
                             Toast.LENGTH_SHORT).show();
                 }
 
@@ -83,7 +87,10 @@ public class ListTasks extends ListActivity {
                 startActivity(i);
             }
         });
+Toast.makeText(getApplicationContext(), "the size is= " + thetasks.size(),
+                Toast.LENGTH_SHORT).show();
     }
+
 
     @Override
     public void onListItemClick(ListView listView, View view, int position, long id) {
