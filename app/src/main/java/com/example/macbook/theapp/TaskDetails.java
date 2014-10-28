@@ -30,31 +30,39 @@ public class TaskDetails extends Activity  {
     Button btn_delete;
     Button btn_edit;
     Task task;
+    List<Task> thetasks1 = new ArrayList<Task>();
+    int position;
 
 
-   protected void onCreate (Bundle savedInstantState){
+
+    protected void onCreate (Bundle savedInstantState){
        super.onCreate (savedInstantState);
        setContentView(R.layout.activity_task_detail);
        Intent i= getIntent();
        task= (Task) i.getSerializableExtra("task");
-
+       thetasks1= Readfiles.action(TaskDetails.this);
+       i.getIntExtra("position", position);
 
        Button btn_delete = (Button) findViewById(R.id.btn_delete);
        Button btn_edit = (Button) findViewById(R.id.btn_edit);
        btn_delete.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               List<Task> thetasks = new ArrayList<Task>();
-               thetasks= readfiles();
-               thetasks.remove(task);
-               writefiles(thetasks);
-               Toast.makeText(getApplicationContext(), "t=)",
-                       Toast.LENGTH_SHORT).show();
+               thetasks1.remove(position);
 
-               Intent i = new Intent(TaskDetails.this, ListTasks.class);
-               startActivity(i);
            }
        });
+        btn_edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Toast.makeText(getApplicationContext(), "position = " + position,
+                        Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
 
 
 
@@ -74,47 +82,10 @@ public class TaskDetails extends Activity  {
            @Override
            public void onClick(View v) {
                task.setStatus((task.getStatus()+1)%2);
-
                theAdapter.recreate();
-
            }
        });
 
-
-
    }
-
-
-    public List readfiles() {
-       List<Task> thetasks = new ArrayList<Task>();
-        try {
-
-            FileInputStream fis = openFileInput(ListTasks.TASKS_CACHE_FILE);
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            thetasks = (List<Task>) ois.readObject();
-            ois.close();
-            fis.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return thetasks;
-    }
-
-    public void writefiles(List<Task> thetasks){
-        try {
-            FileOutputStream fos = openFileOutput(ListTasks.TASKS_CACHE_FILE, Context.MODE_PRIVATE);
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-
-            oos.writeObject(thetasks);
-            oos.close();
-            fos.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
 
 }

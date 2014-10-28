@@ -1,5 +1,6 @@
 package com.example.macbook.theapp;
 
+import android.app.Application;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -43,17 +44,8 @@ public class ListTasks extends ListActivity {
         setContentView(R.layout.activity_list);
         btn_add = (Button) findViewById(R.id.btn_add);
 
+        thetasks = Readfiles.action(this);
 
-
-        try {
-            FileInputStream fis = openFileInput(TASKS_CACHE_FILE);
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            thetasks = (List<Task>) ois.readObject();
-            ois.close();
-            fis.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         ItemArrayAdapter = new TaskAdapter(this, thetasks);
         setListAdapter(ItemArrayAdapter);
@@ -72,12 +64,10 @@ public class ListTasks extends ListActivity {
     public void onListItemClick(ListView listView, View view, int position, long id) {
         Log.d(ListTasks.class.getSimpleName(), "hola");
 
-
-        Toast.makeText(getApplicationContext(), "this is my Toast message!!! =)",
-                Toast.LENGTH_SHORT).show();
         Task task1= thetasks.get(position);
                 Intent i = new Intent(this, TaskDetails.class);
                 i.putExtra("task",task1);
+                i.putExtra("position", position);
                 startActivity(i);
 
 
@@ -85,14 +75,7 @@ public class ListTasks extends ListActivity {
 
 
 
-    /*private AdapterView.OnItemClickListener onListClick = new AdapterView.OnItemClickListener(){
-        public void onItemClick (AdapterView<?> parent, View view , int position, long id){
-            Intent i = new Intent(ListTasks.this, TaskDetails.class);
 
-            i.putExtra(TASKS_CACHE_FILE, String.valueOf(id));
-            startActivity(i);
-        }
 
-    };*/
 }
 
