@@ -31,7 +31,6 @@ public class ListTasks extends ListActivity {
     public final static String TASKS_CACHE_FILE = "task_cache.ser";
 
 
-    Button btn_add;
 
     private ArrayAdapter ItemArrayAdapter;
 
@@ -42,7 +41,33 @@ public class ListTasks extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
-        btn_add = (Button) findViewById(R.id.btn_add);
+        Button btn_add = (Button) findViewById(R.id.btn_add);
+        Button btn_change = (Button) findViewById(R.id.btn_chng);
+
+        btn_change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClassicSingleton.getInstance();
+                if(ClassicSingleton.getInstance().isWoman()){
+                    ClassicSingleton.getInstance().setMan();
+                    Toast.makeText(getApplicationContext(), "Sammy is now a man",
+                            Toast.LENGTH_SHORT).show();                }
+                else if (ClassicSingleton.getInstance().isMan()){
+                    Toast.makeText(getApplicationContext(), "Sammy went home",
+                            Toast.LENGTH_SHORT).show();
+                    ClassicSingleton.getInstance().setNone();
+                }
+                else {
+                    ClassicSingleton.getInstance().setWoman();
+                    Toast.makeText(getApplicationContext(), "Sammy is now a girl",
+                            Toast.LENGTH_SHORT).show();
+                }
+
+
+
+            }
+        });
+
 
         thetasks = Readfiles.action(this);
 
@@ -62,7 +87,6 @@ public class ListTasks extends ListActivity {
 
     @Override
     public void onListItemClick(ListView listView, View view, int position, long id) {
-        Log.d(ListTasks.class.getSimpleName(), "hola");
 
         Task task1= thetasks.get(position);
                 Intent i = new Intent(this, TaskDetails.class);

@@ -11,36 +11,45 @@ import java.io.Serializable;
 public class Task implements Serializable {
     private static final long serialVersionUID = 1L;
     private String Title;
-    private String Description;
+    private String BriefDescription;
     private int Status;
-
+    private String Description;
 
     public Task() {}
 
     public String getTitle() {
         return Title;
     }
+    public String getBriefDescription() {
 
-    public String getDescription() {
-
-        return Description;
+        return BriefDescription;
     }
-
     public void setTitle(String Title) {
 
         this.Title = Title;
 
     }
-
     public int getStatus() {
         return Status;
     }
+    public String getDescription() {
 
+<<<<<<< HEAD
     public void setStatus(int Status) {
         this.Status = Status;
     }
 
 
+=======
+        return Description;
+    }
+    public void setStatus (int Status){
+        this.Status = Status;
+    }
+    public void setBriefDescription(String BriefDescription) {
+        this.BriefDescription = BriefDescription;
+    }
+>>>>>>> 28e54355dd8c01019bd9e46b9a54cb9154330469
     public void setDescription(String Description) {
         this.Description = Description;
     }

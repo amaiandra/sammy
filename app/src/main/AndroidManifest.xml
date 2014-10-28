@@ -28,10 +28,15 @@
 
         <activity
             android:name= ".TaskDetails"
-            android:theme="@style/dialogbox"
             android:label= "task details">
 
             </activity>
+        <activity
+            android:name= ".TaskEdit"
+            android:theme="@style/dialogbox"
+            android:label= "task details">
+
+        </activity>
 
 
     </application>

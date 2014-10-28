@@ -1,17 +1,12 @@
 package com.example.macbook.theapp;
 
 
-import android.app.Activity;
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -34,8 +29,8 @@ public class TaskAdapter extends ArrayAdapter<Task> {
         View theView = inflater.inflate(R.layout.row_task, parent, false);
         TextView title = (TextView) theView.findViewById(R.id.Title);
         title.setText(tasks.get(position).getTitle());
-        TextView description = (TextView) theView.findViewById(R.id.Description);
-        description.setText(tasks.get(position).getDescription());
+        TextView briefdescription = (TextView) theView.findViewById(R.id.BriefDescription);
+        briefdescription.setText(tasks.get(position).getBriefDescription());
         ImageView imgbutton = (ImageView) theView.findViewById(R.id.imageButton);
         if(tasks.get(position).getStatus()==1){
             imgbutton.setImageResource(R.drawable.radiobtn_on);
@@ -49,6 +44,9 @@ public class TaskAdapter extends ArrayAdapter<Task> {
             public void onClick(View v) {
                 tasks.get(position).setStatus((tasks.get(position).getStatus()+1)%2);
                 Writefiles.action(getContext(), tasks);
+                if(tasks.get(position).getStatus()%2 ==1){
+                    ClassicSingleton.getInstance().playSound(theAdapter.getContext());
+                }
 
                 theAdapter.notifyDataSetChanged();
 

@@ -8,6 +8,7 @@
     android:paddingTop="2dp"
     android:background="#ffffff"
     tools:context="com.example.macbook.theapp.ListTasks">
+<<<<<<< HEAD
 
 <LinearLayout
     android:layout_width="fill_parent"
@@ -16,12 +17,45 @@
     android:layout_marginTop="40dp"
     android:layout_marginBottom="40dp"
     >
+=======
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@android:id/list"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+>>>>>>> 28e54355dd8c01019bd9e46b9a54cb9154330469
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:text="New Activity"
             android:id="@+id/btn_add"
+<<<<<<< HEAD
             android:background="#E8F7F7"
+=======
+
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@android:id/list" />
+        <Button
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:text="ChangeState"
+            android:id="@+id/btn_chng"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@android:id/list" />
+        </LinearLayout>
+>>>>>>> 28e54355dd8c01019bd9e46b9a54cb9154330469
 
             android:textColor="#41D2D2"
             android:shadowColor="#ffc2ff96"
