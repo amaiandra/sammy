@@ -7,7 +7,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <ImageView
             android:layout_width="150dp"
@@ -23,7 +23,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/descDes" />
+            android:id="@+id/brfDesc" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/Desc" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -35,14 +42,20 @@
                 android:layout_height="wrap_content"
                 android:text="Edit"
                 android:id="@+id/btn_edit"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_vertical" />
             <Button
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Delete"
                 android:id="@+id/btn_delete"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_vertical" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Return"
+                android:id="@+id/btn_return" />
         </LinearLayout>
 
         </LinearLayout>
