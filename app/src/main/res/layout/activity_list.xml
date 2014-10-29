@@ -73,6 +73,7 @@
         android:layout_above="@android:id/list"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="5dp"
+
         android:src="@drawable/logout_icon"
         android:background="#ffffff"
         android:textColor="#000000"/>
