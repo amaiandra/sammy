@@ -58,7 +58,7 @@ public class Login extends Activity {
                             startActivity(f);
                         }
                         else{
-                            Toast.makeText(getApplicationContext(), "The passwprd and username dont match", Toast.LENGTH_SHORT);
+                            Toast.makeText(getApplicationContext(), "The password and username don't match", Toast.LENGTH_SHORT).show();
                         }
 
 
