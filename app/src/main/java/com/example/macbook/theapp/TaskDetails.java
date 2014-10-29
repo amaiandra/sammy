@@ -27,8 +27,9 @@ public class TaskDetails extends Activity  {
        super.onCreate (savedInstantState);
        setContentView(R.layout.activity_task_detail);
        Intent i= getIntent();
+       final String TASKS_CACHE_FILE= i.getStringExtra("file");
        task= (Task) i.getSerializableExtra("task");
-       thetasks= Readfiles.action(TaskDetails.this);
+       thetasks= Readfiles.action(TaskDetails.this, TASKS_CACHE_FILE);
        position = i.getIntExtra("position",0 );
 
        Button btn_delete = (Button) findViewById(R.id.btn_delete);
@@ -38,7 +39,7 @@ public class TaskDetails extends Activity  {
            @Override
            public void onClick(View v) {
                thetasks.remove(position);
-               Writefiles.action(TaskDetails.this, thetasks);
+               Writefiles.action(TaskDetails.this, thetasks, TASKS_CACHE_FILE);
                Intent i = new Intent(TaskDetails.this, ListTasks.class);
                startActivity(i);
 
@@ -50,6 +51,7 @@ public class TaskDetails extends Activity  {
                 Intent i = new Intent(TaskDetails.this, TaskEdit.class);
                 i.putExtra("task",task);
                 i.putExtra("position", position);
+                i.putExtra("file", TASKS_CACHE_FILE);
                 startActivity(i);
             }
         });
@@ -90,7 +92,7 @@ public class TaskDetails extends Activity  {
 
                thetasks.remove(position);
                thetasks.add(position,task);
-               Writefiles.action(TaskDetails.this, thetasks);
+               Writefiles.action(TaskDetails.this, thetasks, TASKS_CACHE_FILE);
            }
        });
 

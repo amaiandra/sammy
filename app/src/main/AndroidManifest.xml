@@ -34,8 +34,13 @@
         <activity
             android:name= ".TaskEdit"
             android:theme="@style/dialogbox"
-            android:label= "task details">
+            android:label= "edit task">
 
+        </activity>
+        <activity
+            android:name=".Signup"
+            android:theme="@style/dialogbox"
+            android:label="signup" >
         </activity>
 
 

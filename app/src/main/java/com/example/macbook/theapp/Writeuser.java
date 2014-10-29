@@ -9,17 +9,17 @@ import java.io.ObjectOutputStream;
 import java.util.List;
 
 /**
- * Created by macbook on 10/28/14.
+ * Created by macbook on 10/29/14.
  */
-public class Writefiles {
+public class Writeuser {
 
 
-    public static void action(Context context, List<Task> thetasks,String TASKS_CACHE_FILE){
+    public static void action(Context context, List<User> theusers){
         try {
-            FileOutputStream fos = context.openFileOutput(TASKS_CACHE_FILE, Context.MODE_PRIVATE);
+            FileOutputStream fos = context.openFileOutput(Login.USER_CACHE_FILE, Context.MODE_PRIVATE);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
 
-            oos.writeObject(thetasks);
+            oos.writeObject(theusers);
             oos.close();
             fos.close();
         } catch (FileNotFoundException e) {

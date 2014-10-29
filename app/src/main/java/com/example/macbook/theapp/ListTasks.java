@@ -31,7 +31,10 @@ import java.util.jar.Attributes;
 public class ListTasks extends ListActivity {
 
 
-    public final static String TASKS_CACHE_FILE = "task_cache.ser";
+    Intent f = getIntent();
+    String username = f.getStringExtra( "username");
+    public final String TASKS_CACHE_FILE = "task_cache_" + username +".ser";
+
 
 
 
@@ -45,7 +48,17 @@ public class ListTasks extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
+
+
         Button btn_add = (Button) findViewById(R.id.btn_add);
+        Button btn_logout = (Button) findViewById(R.id.btn_signout);
+        btn_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ListTasks.this, Login.class);
+                startActivity(i);
+            }
+        });
         ImageButton btn_change = (ImageButton) findViewById(R.id.btn_chng);
           btn_change.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +86,7 @@ public class ListTasks extends ListActivity {
         });
 
 
-        thetasks = Readfiles.action(this);
+        thetasks = Readfiles.action(this,TASKS_CACHE_FILE);
 
 
         ItemArrayAdapter = new TaskAdapter(this, thetasks);
@@ -84,11 +97,12 @@ public class ListTasks extends ListActivity {
             public void onClick(View v) {
 
                 Intent i = new Intent(ListTasks.this, AddTask.class);
+                i.putExtra("file", TASKS_CACHE_FILE);
                 startActivity(i);
             }
         });
-Toast.makeText(getApplicationContext(), "the size is= " + thetasks.size(),
-                Toast.LENGTH_SHORT).show();
+
+
     }
 
 
@@ -99,6 +113,7 @@ Toast.makeText(getApplicationContext(), "the size is= " + thetasks.size(),
                 Intent i = new Intent(this, TaskDetails.class);
                 i.putExtra("task",task1);
                 i.putExtra("position", position);
+                i.putExtra("file", TASKS_CACHE_FILE);
                 startActivity(i);
 
 
