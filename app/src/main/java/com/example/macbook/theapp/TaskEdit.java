@@ -27,9 +27,8 @@ public class TaskEdit extends Activity {
         super.onCreate(savedInstantState);
         setContentView(R.layout.activity_task_edit);
         Intent i = getIntent();
-        final String TASKS_CACHE_FILE = i.getStringExtra("file");
         task = (Task) i.getSerializableExtra("task");
-        thetasks = Readfiles.action(TaskEdit.this,TASKS_CACHE_FILE);
+        thetasks = Readfiles.action(TaskEdit.this);
         position = i.getIntExtra("position", 0);
         final String title = task.getTitle();
         final String brfD = task.getBriefDescription();
@@ -70,7 +69,7 @@ public class TaskEdit extends Activity {
                 task.setBriefDescription(nBrfD);
                 task.setDescription(nDesc);
                 thetasks.add(position, task);
-                Writefiles.action(TaskEdit.this, thetasks,TASKS_CACHE_FILE);
+                Writefiles.action(TaskEdit.this, thetasks);
                 Intent i=new Intent(TaskEdit.this,TaskDetails.class);
                 i.putExtra("task",task);
                 i.putExtra("position", position);

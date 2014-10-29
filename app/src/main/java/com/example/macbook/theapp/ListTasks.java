@@ -31,9 +31,7 @@ import java.util.jar.Attributes;
 public class ListTasks extends ListActivity {
 
 
-    Intent f = getIntent();
-    String username = f.getStringExtra( "username");
-    public final String TASKS_CACHE_FILE = "task_cache_" + username +".ser";
+    public static String TASKS_CACHE_FILE;
 
 
 
@@ -48,10 +46,13 @@ public class ListTasks extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
+        Intent f = getIntent();
+        String username = f.getStringExtra( "username");
+        TASKS_CACHE_FILE = "task_cache_" + username +".ser";
 
 
         Button btn_add = (Button) findViewById(R.id.btn_add);
-        Button btn_logout = (Button) findViewById(R.id.btn_signout);
+        ImageButton btn_logout = (ImageButton) findViewById(R.id.btn_signout);
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,7 +87,7 @@ public class ListTasks extends ListActivity {
         });
 
 
-        thetasks = Readfiles.action(this,TASKS_CACHE_FILE);
+        thetasks = Readfiles.action(this);
 
 
         ItemArrayAdapter = new TaskAdapter(this, thetasks);
@@ -97,7 +98,6 @@ public class ListTasks extends ListActivity {
             public void onClick(View v) {
 
                 Intent i = new Intent(ListTasks.this, AddTask.class);
-                i.putExtra("file", TASKS_CACHE_FILE);
                 startActivity(i);
             }
         });

@@ -43,7 +43,7 @@
 
 
     <EditText
-        android:id="@+id/etUser"
+        android:id="@+id/liusername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -54,14 +54,14 @@
         android:layout_marginTop="20dp"/>
 
     <EditText
-        android:id="@+id/etPass"
+        android:id="@+id/lipassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:hint="Password..."
         android:background="@drawable/greenallround"
-        android:layout_below="@+id/etUser"
+        android:layout_below="@+id/liusername"
         android:layout_marginTop="6dp"/>
 
     <Button

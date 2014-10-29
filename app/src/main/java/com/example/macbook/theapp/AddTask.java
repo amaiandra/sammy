@@ -23,8 +23,6 @@ public class AddTask extends Activity implements View.OnClickListener {
 
 
     public List<Task> thetasks = new ArrayList<Task>();
-    Intent i = getIntent();
-    String TASKS_CACHE_FILE = i.getStringExtra("file");
 
 
 
@@ -51,7 +49,7 @@ public class AddTask extends Activity implements View.OnClickListener {
 
 
 
-                thetasks = Readfiles.action(this,TASKS_CACHE_FILE);
+                thetasks = Readfiles.action(this);
 
                 tsk.setTitle(ti);
                 tsk.setBriefDescription(dc);
@@ -61,7 +59,7 @@ public class AddTask extends Activity implements View.OnClickListener {
 
 
 
-                Writefiles.action(this, thetasks, TASKS_CACHE_FILE);
+                Writefiles.action(this, thetasks);
 
                 Intent i = new Intent(this, ListTasks.class);
                 startActivity(i);

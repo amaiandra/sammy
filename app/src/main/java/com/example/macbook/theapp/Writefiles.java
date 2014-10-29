@@ -14,9 +14,9 @@ import java.util.List;
 public class Writefiles {
 
 
-    public static void action(Context context, List<Task> thetasks,String TASKS_CACHE_FILE){
+    public static void action(Context context, List<Task> thetasks){
         try {
-            FileOutputStream fos = context.openFileOutput(TASKS_CACHE_FILE, Context.MODE_PRIVATE);
+            FileOutputStream fos = context.openFileOutput(ListTasks.TASKS_CACHE_FILE, Context.MODE_PRIVATE);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
 
             oos.writeObject(thetasks);

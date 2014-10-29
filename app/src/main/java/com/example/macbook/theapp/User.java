@@ -20,7 +20,7 @@ public class User implements Serializable {
 
         return password;
     }
-    public void setUsername(String Title) {
+    public void setUsername(String username) {
 
         this.username = username;
 

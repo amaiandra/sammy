@@ -20,11 +20,11 @@ import java.io.ObjectOutputStream;
 public class Readfiles {
 
 
-    public static List action(Context context, String TASKS_CACHE_FILE) {
+    public static List action(Context context) {
         List<Task> thetasks = new ArrayList<Task>();
         try {
 
-            FileInputStream fis = context.openFileInput(TASKS_CACHE_FILE);
+            FileInputStream fis = context.openFileInput(ListTasks.TASKS_CACHE_FILE);
             ObjectInputStream ois = new ObjectInputStream(fis);
             thetasks = (List<Task>) ois.readObject();
             ois.close();

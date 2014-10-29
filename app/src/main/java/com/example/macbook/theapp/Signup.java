@@ -16,24 +16,21 @@ import java.util.List;
  */
 public class Signup extends Activity implements View.OnClickListener {
 
-    EditText Username, Password, Password2;
+
     Button btn_user_accept, btn_user_cancel;
     User user;
-
-
+    String urnm, pw, pw2;
 
 
     public List<User> theusers = new ArrayList<User>();
 
 
 
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_add);
-        Username = (EditText) findViewById(R.id.username);
-        Password = (EditText) findViewById(R.id.password);
-        Password2 = (EditText) findViewById(R.id.password2);
+
+
 
         btn_user_accept = (Button) findViewById(R.id.btn_user_accept);
         btn_user_cancel = (Button) findViewById(R.id.btn_user_cancel);
@@ -44,54 +41,52 @@ public class Signup extends Activity implements View.OnClickListener {
     }
 
     public void onClick(View v) {
-        user = new User();
-        String urnm =Username.getText().toString();
-        String pw = Password.getText().toString();
-        String pw2 = Password2.getText().toString();
-
-        if (v ==this.btn_user_accept) {
-            if (!urnm.isEmpty() && !pw.isEmpty() &&!pw2.isEmpty()) {
+        EditText Username = (EditText) findViewById(R.id.username);
+        EditText Password = (EditText) findViewById(R.id.password);
+        EditText Password2 = (EditText) findViewById(R.id.password2);
 
 
 
-                theusers = ReadUsers.action(this);
+        if (v == this.btn_user_accept) {
+            user = new User();
+            urnm = Username.getText().toString();
+            pw = Password.getText().toString();
+            pw2 = Password2.getText().toString();
+            theusers = ReadUsers.action(this);
 
+            if (!urnm.isEmpty() && !pw.isEmpty() && !pw2.isEmpty()) {
 
                 user.setUsername(urnm);
 
-
-                for (int a=0; a < theusers.size(); a++){
-                    if ( theusers.get(a).getUsername()==user.getUsername()){
-                        Toast.makeText(getApplicationContext(), "Username already exists",  Toast.LENGTH_SHORT).show();
-                    }
+                if (!pw.equals(pw2)) {
+                    Toast.makeText(getApplicationContext(), "Passwords don't match", Toast.LENGTH_SHORT).show();
                 }
+                else
+                {
 
 
-
-                if(pw==pw2){
                     user.setPassword(pw);
 
+                    theusers.add(user);
+                    Writeuser.action(this, theusers);
+
+                    Intent i = new Intent(this, Login.class);
+                    startActivity(i);
+
+
                 }
-                else{
-                    Toast.makeText(getApplicationContext(), "Passwords don't match",  Toast.LENGTH_SHORT).show();
-                }
-                theusers.add(user);
-
-
-
-                Writeuser.action(this, theusers);
-
-                Intent i = new Intent(this, Login.class);
-                startActivity(i);
             }
         }
-        if (v ==this.btn_user_cancel){
-            Intent i=new Intent(this,Login.class);
+
+        if (v == this.btn_user_cancel) {
+        Intent i = new Intent(this, Login.class);
             startActivity(i);
-        }
+            }
+
 
     }
-
-
 }
+
+
+
 

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -15,9 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Login extends Activity implements OnClickListener {
-    EditText etUser, etPass;
+public class Login extends Activity {
+    EditText username, password;
     Button btn_login, btn_signup;
+    User user;
 
 
 
@@ -30,11 +32,51 @@ public class Login extends Activity implements OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        etUser=(EditText) findViewById(R.id.etUser);
-        etPass=(EditText) findViewById(R.id.etPass);
+        username=(EditText) findViewById(R.id.liusername);
+        password=(EditText) findViewById(R.id.lipassword);
         btn_login=(Button) findViewById(R.id.btn_login);
-        btn_login.setOnClickListener(this);
-        btn_signup = (Button) findViewById(R.id.btn_signout);
+        btn_login.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String stringusername= username.getText().toString();
+                String stringpassword= password.getText().toString();
+                user = new User();
+                user.setUsername(stringusername);
+                user.setPassword(stringpassword);
+                theusers = ReadUsers.action(Login.this);
+                int position =0;
+
+
+                Log.d(Login.class.getSimpleName(), "user.getUsername()=" + user.getUsername() +
+                        ", theusers=" + theusers);
+                for (int a=0; a<theusers.size(); a++){
+                    if (user.getUsername().equals(theusers.get(a).getUsername())) {
+                     position=a;
+                        if(user.getPassword().equals(theusers.get(position).getPassword())){
+                            Intent f = new Intent(Login.this, ListTasks.class);
+                            f.putExtra("username", stringusername);
+                            startActivity(f);
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(), "The passwprd and username dont match", Toast.LENGTH_SHORT);
+                        }
+
+
+                    }
+                }
+
+
+
+
+
+
+
+            }
+
+        });
+
+
+        btn_signup = (Button) findViewById(R.id.btn_signup);
         btn_signup.setOnClickListener(new OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -62,54 +104,8 @@ public class Login extends Activity implements OnClickListener {
 
 
     }
-    public void onClick (View v){
-
-        String na=etUser.getText().toString();
-        String pa=etPass.getText().toString();
 
 
-
-
-        switch (v.getId()){
-
-            case R.id.btn_login:
-
-
-                theusers = ReadUsers.action(this);
-                int position = 0;
-
-                for (int a=0; a < theusers.size(); a++){
-                    if ( theusers.get(a).getUsername()==na){
-                        position = a;
-                    }
-                }
-
-
-
-
-
-                if(na.equals(theusers.get(position).getUsername())&&pa.equals(theusers.get(position).getPassword())){
-
-
-
-                    Intent f=new Intent(this,ListTasks.class);
-                    f.putExtra("username", na);
-                    startActivity(f);
-
-                }
-                else{
-                    Toast.makeText( getApplicationContext(), "The username and/or password is incorrect", Toast.LENGTH_SHORT).show();
-                }
-                
-
-                break;
-
-
-
-
-        }
-
-    }
 
 
 }
